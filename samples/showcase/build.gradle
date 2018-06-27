@@ -27,7 +27,19 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-showcase.pro'
         }
+        debug {
+            minifyEnabled false
+        }
+        instrumentation {
+            initWith debug
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-showcase.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-showcase.pro', 'proguard-test.pro'
+            matchingFallbacks = ['debug']
+        }
     }
+
+    testBuildType "instrumentation"
 
     flavorDimensions "main"
     productFlavors {
@@ -39,13 +51,6 @@ android {
         }
 
         internal {
-            buildTypes {
-                debug {
-                    minifyEnabled true
-                    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-showcase.pro'
-                    testProguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-showcase.pro', 'proguard-test.pro'
-                }
-            }
         }
     }
 

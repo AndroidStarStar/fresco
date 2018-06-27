@@ -1,0 +1,21 @@
+***************
+*** 53,61 ****
+            command: ./gradlew test assembleDebug -PdisablePreDex
+        - save-cache: *save-cache-gradle
+        - run:
+-           name: Run Instrmentation Tests
+            command: |
+-             ./gradlew :samples:showcase:connectedInternalDebugAndroidTest -PdisablePreDex
+        - run:
+            name: Copy Results
+            command: |
+--- 53,61 ----
+            command: ./gradlew test assembleDebug -PdisablePreDex
+        - save-cache: *save-cache-gradle
+        - run:
++           name: Run Instrumentation Tests
+            command: |
++             ./gradlew :samples:showcase:connectedInternalInstrumentationAndroidTest -PdisablePreDex
+        - run:
+            name: Copy Results
+            command: |
